@@ -41,6 +41,9 @@ function calculateMonthlyPayment(values) {
   const p = values['amount'];
   const n = values['years']*12;
   const i = values['rate'];
+  if (values['amount'] === 0){
+    return '0.00';
+  }
   return `${Math.round((p*i*100)/(1 - Math.pow(1+i,-n)))/100}`;
 }
 
